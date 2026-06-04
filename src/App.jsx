@@ -369,6 +369,62 @@ function App() {
 
         </div>
       </section>
+
+      {/* ===== EXPERIENCE SECTION ===== */}
+        <section className="experience" id="experience">
+          <div className="experience-header">
+            <p className="section-label">EXPERIENCE</p>
+            <h2>Experience That Shapes My Work</h2>
+          </div>
+
+          <div className="experience-timeline">
+            <div className="experience-item">
+              <div className="experience-icon">
+                <img src="/icons/teaching.png" alt="Teaching Experience" />
+              </div>
+
+              <div className="experience-content">
+                <div className="experience-title-row">
+                  <h3>Middle School Math Teacher</h3>
+                  <span>Mar 2023 - Jun 2026</span>
+                </div>
+
+                <p className="experience-place">
+                  Omar D. Blair Charter School, Denver, CO
+                </p>
+
+                <ul>
+                  <li>Taught 7th grade math, including algebraic reasoning, proportional relationships, and rational number operations.</li>
+                  <li>Analyzed student performance data to identify learning gaps and adjust instruction.</li>
+                  <li>Tracked academic progress across multiple assessment cycles.</li>
+                  <li>Communicated complex concepts clearly and collaborated with interdisciplinary teams.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="experience-item">
+              <div className="experience-icon">
+                <img src="/icons/internship.png" alt="Internship Experience" />
+              </div>
+
+              <div className="experience-content">
+                <div className="experience-title-row">
+                  <h3>Internship</h3>
+                  <span>Jun 2022 - Oct 2022</span>
+                </div>
+
+                <p className="experience-place">
+                  Dangers of the Mind, Washington DC
+                </p>
+
+                <ul>
+                  <li>Assisted in organizing youth leadership workshops and educational programming.</li>
+                  <li>Supported community outreach initiatives focused on student development.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
     </>
   )
 }

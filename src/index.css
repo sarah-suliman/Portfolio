@@ -566,3 +566,210 @@ nav li.active::after {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================
+   EXPERIENCE SECTION
+========================================== */
+
+.experience {
+  padding: 6rem 4rem;
+  background: #fbf7ff;
+  color: #1c1026;
+}
+
+.experience-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.experience-header h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: #1c1026;
+  margin-top: 0.5rem;
+}
+
+/* ==========================================
+   TIMELINE
+========================================== */
+
+.experience-timeline {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  left: 60px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(126, 34, 206, 0.25);
+}
+
+/* ==========================================
+   EXPERIENCE ITEM
+========================================== */
+
+.experience-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.experience-item:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================
+   ICONS
+========================================== */
+
+.experience-icon {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.experience-icon img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+/* ==========================================
+   EXPERIENCE CARD
+========================================== */
+
+.experience-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 0 8px 25px rgba(126, 34, 206, 0.08);
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.experience-content:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(126, 34, 206, 0.15);
+}
+
+/* ==========================================
+   TITLE ROW
+========================================== */
+
+.experience-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.experience-title-row h3 {
+  font-size: 1.9rem;
+  color: #3b0764;
+  margin: 0;
+}
+
+.experience-title-row span {
+  font-weight: 600;
+  color: #4b4453;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   COMPANY / SCHOOL
+========================================== */
+
+.experience-place {
+  color: #7e22ce;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ==========================================
+   BULLET POINTS
+========================================== */
+
+.experience-content ul {
+  margin: 0;
+  padding-left: 1.3rem;
+}
+
+.experience-content li {
+  margin-bottom: 0.9rem;
+  line-height: 1.7;
+  color: #4b4453;
+}
+
+.experience-content li:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+
+  .experience {
+    padding: 5rem 2rem;
+  }
+
+  .experience-title-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .experience-icon {
+    width: 90px;
+    height: 90px;
+  }
+
+  .experience-icon img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .experience-timeline::before {
+    left: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .experience-timeline::before {
+    display: none;
+  }
+
+  .experience-item {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .experience-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .experience-icon img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .experience-content {
+    width: 100%;
+  }
+}
