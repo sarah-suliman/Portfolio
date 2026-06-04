@@ -66,7 +66,14 @@ function App() {
     </li>
   </ul>
 
-  <button className="resume-btn">Resume</button>
+  <a
+  href="/Sarah_Suliman_Resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="resume-btn"
+>
+  Resume
+</a>
 </nav>
 
       {/* ===== HERO SECTION ===== */}
@@ -93,9 +100,14 @@ function App() {
               View Projects →
             </button>
 
-            <button className="secondary-btn">
-              ↓ Download Resume
-            </button>
+            <a
+                href="/Sarah_Suliman_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="secondary-btn"
+              >
+                ↓ Download Resume
+              </a>
           </div>
         </div>
 

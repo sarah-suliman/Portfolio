@@ -26,15 +26,15 @@ nav {
 
   display: flex;
   align-items: center;
+  gap: 2rem;
 
   background: rgba(20, 0, 31, 0.95);
   backdrop-filter: blur(12px);
-
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 nav h1 {
-  font-size: 2rem;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-family: Georgia, serif;
   color: white;
   white-space: nowrap;
@@ -42,11 +42,10 @@ nav h1 {
 
 nav ul {
   display: flex;
+  align-items: center;
   list-style: none;
-  gap: 2.5rem;
-
+  gap: clamp(1.2rem, 2vw, 2.5rem);
   margin-left: auto;
-  margin-right: 4rem;
 }
 
 nav li {
@@ -56,52 +55,85 @@ nav li {
 nav a {
   color: white;
   text-decoration: none;
-  font-size: 1rem;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  color: #d8b4ff;
-}
-
-nav li.active a {
-  color: white;
-  font-weight: 600;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  font-weight: 500;
 }
 
 nav li.active::after {
   content: "";
-
   position: absolute;
   left: 0;
   bottom: -14px;
-
   width: 100%;
   height: 4px;
-
   background: #c084fc;
   border-radius: 20px;
 }
 
-.resume-btn {
-  background: transparent;
+/* ===== BUTTONS ===== */
+
+.resume-btn,
+.secondary-btn {
+  text-decoration: none;
   color: white;
 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 130px;
+  height: 52px;
+  padding: 0 1.5rem;
+
   border: 1px solid #d8b4ff;
-  border-radius: 12px;
+  border-radius: 14px;
 
-  padding: 0.9rem 1.8rem;
-
+  background: transparent;
+  font-weight: 600;
   cursor: pointer;
 
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
-.resume-btn:hover {
-  background: rgba(192, 132, 252, 0.15);
+.resume-btn:hover,
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
 
-/* Responsive */
+.primary-btn {
+  text-decoration: none;
+  color: white;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 170px;
+  height: 52px;
+  padding: 0 1.7rem;
+
+  background: #a855f7;
+  border: none;
+  border-radius: 14px;
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.primary-btn:hover {
+  background: #c084fc;
+  transform: translateY(-3px);
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* ===== RESPONSIVE NAVBAR ===== */
 
 @media (max-width: 1000px) {
   nav {
@@ -109,8 +141,32 @@ nav li.active::after {
   }
 
   nav ul {
-    gap: 1.5rem;
-    margin-right: 2rem;
+    gap: 1.2rem;
+  }
+
+  .resume-btn {
+    min-width: 110px;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  nav {
+    height: auto;
+    padding: 1rem 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav h1 {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul {
+    margin-left: 0;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
