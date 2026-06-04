@@ -5,63 +5,69 @@ function App() {
   const [activeSection, setActiveSection] = useState("home")
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll("section")
-      let current = "home"
+  const handleScroll = () => {
+    const sections = document.querySelectorAll("section[id]")
 
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop
-        const sectionHeight = section.clientHeight
+    let current = ""
 
-        if (window.scrollY >= sectionTop - 100) {
-          current = section.id
-        }
-      })
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop
+      const sectionHeight = section.offsetHeight
 
-      setActiveSection(current)
-    }
+      if (
+        window.scrollY >= sectionTop - 300 &&
+        window.scrollY < sectionTop + sectionHeight - 300
+      ) {
+        current = section.id
+      }
+    })
 
-    window.addEventListener("scroll", handleScroll)
+    setActiveSection(current)
+  }
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
+  window.addEventListener("scroll", handleScroll)
+  handleScroll()
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll)
+  }
+}, [])
 
   return (
     <>
       {/* ===== NAVBAR ===== */}
-      <nav>
-        <h1>Sarah Suliman</h1>
 
-        <ul>
-          <li className={activeSection === "home" ? "active" : ""}>
-            <a href="#home">Home</a>
-          </li>
-            
-          <li className={activeSection === "about" ? "active" : ""}>
-            <a href="#about">About</a>
-          </li>
+<nav>
+  <h1>Sarah Suliman</h1>
 
-          <li className={activeSection === "projects" ? "active" : ""}>
-            <a href="#projects">Projects</a>
-          </li>
+  <ul>
+    <li className={activeSection === "home" ? "active" : ""}>
+      <a href="#home">Home</a>
+    </li>
 
-          <li className={activeSection === "skills" ? "active" : ""}>
-            <a href="#skills">Skills</a>
-          </li>
+    <li className={activeSection === "about" ? "active" : ""}>
+      <a href="#about">About</a>
+    </li>
 
-          <li className={activeSection === "experience" ? "active" : ""}>
-            <a href="#experience">Experience</a>
-          </li>
+    <li className={activeSection === "projects" ? "active" : ""}>
+      <a href="#projects">Projects</a>
+    </li>
 
-          <li className={activeSection === "contact" ? "active" : ""}>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
+    <li className={activeSection === "skills" ? "active" : ""}>
+      <a href="#skills">Skills</a>
+    </li>
 
-        <button className="resume-btn">Resume</button>
-      </nav>
+    <li className={activeSection === "experience" ? "active" : ""}>
+      <a href="#experience">Experience</a>
+    </li>
+
+    <li className={activeSection === "contact" ? "active" : ""}>
+      <a href="#contact">Contact</a>
+    </li>
+  </ul>
+
+  <button className="resume-btn">Resume</button>
+</nav>
 
       {/* ===== HERO SECTION ===== */}
       <section className="hero" id="home">
@@ -298,6 +304,69 @@ function App() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ===== SKILLS SECTION ===== */}
+      <section className="skills" id="skills">
+        <div className="skills-header">
+          <p className="section-label">SKILLS</p>
+          <h2>Tools & Technologies</h2>
+        </div>
+
+        <div className="skills-grid">
+
+          <div className="skill-card">
+            <img src="/icons/frontend.png" alt="Frontend" />
+            <h3>Frontend</h3>
+
+            <div className="skill-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>React</span>
+              <span>Responsive Design</span>
+            </div>
+          </div>
+
+          <div className="skill-card">
+            <img src="/icons/backend.png" alt="Backend" />
+            <h3>Backend</h3>
+
+            <div className="skill-tags">
+              <span>Python</span>
+              <span>Flask</span>
+              <span>SQL</span>
+              <span>REST APIs</span>
+            </div>
+          </div>
+
+          <div className="skill-card">
+            <img src="/icons/tools.png" alt="Tools" />
+            <h3>Tools</h3>
+
+            <div className="skill-tags">
+              <span>Git</span>
+              <span>GitHub</span>
+              <span>VS Code</span>
+              <span>Jupyter</span>
+              <span>Figma</span>
+            </div>
+          </div>
+
+          <div className="skill-card">
+            <img src="/icons/concepts.png" alt="Concepts" />
+            <h3>Concepts</h3>
+
+            <div className="skill-tags">
+              <span>Data Structures</span>
+              <span>Algorithms</span>
+              <span>OOP</span>
+              <span>UI/UX</span>
+              <span>Problem Solving</span>
+            </div>
+          </div>
+
         </div>
       </section>
     </>
