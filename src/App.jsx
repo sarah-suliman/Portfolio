@@ -1,6 +1,33 @@
+import { useEffect, useState } from "react"
 import "./index.css"
 
 function App() {
+  const [activeSection, setActiveSection] = useState("home")
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section")
+      let current = "home"
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop
+        const sectionHeight = section.clientHeight
+
+        if (window.scrollY >= sectionTop - 100) {
+          current = section.id
+        }
+      })
+
+      setActiveSection(current)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
   return (
     <>
       {/* ===== NAVBAR ===== */}
@@ -8,27 +35,27 @@ function App() {
         <h1>Sarah Suliman</h1>
 
         <ul>
-          <li className="active">
+          <li className={activeSection === "home" ? "active" : ""}>
             <a href="#home">Home</a>
           </li>
-
-          <li>
+            
+          <li className={activeSection === "about" ? "active" : ""}>
             <a href="#about">About</a>
           </li>
 
-          <li>
+          <li className={activeSection === "projects" ? "active" : ""}>
             <a href="#projects">Projects</a>
           </li>
 
-          <li>
+          <li className={activeSection === "skills" ? "active" : ""}>
             <a href="#skills">Skills</a>
           </li>
 
-          <li>
+          <li className={activeSection === "experience" ? "active" : ""}>
             <a href="#experience">Experience</a>
           </li>
 
-          <li>
+          <li className={activeSection === "contact" ? "active" : ""}>
             <a href="#contact">Contact</a>
           </li>
         </ul>
@@ -85,52 +112,81 @@ function App() {
             and technology.
           </h2>
 
+          <div className="about-decoration">
+            <span className="line"></span>
+            <span className="star">✦</span>
+          </div>
+
           <p>
-            My background in education taught me how to communicate
-            clearly, analyze information, and design experiences around
-            people. Now, I apply those same skills to create intuitive
-            interfaces and impactful software.
+            My background in education taught me how to communicate clearly,
+            analyze information, and design experiences around people. Now, I
+            apply those same skills to create intuitive interfaces and impactful
+            software.
           </p>
 
-          <a href="#">Learn more about me →</a>
+          <a href="#projects">Learn more about me →</a>
         </div>
 
+        <div className="about-divider"></div>
+
         <div className="about-right">
-          <div className="about-card">
-            <h3>Clear Communicator</h3>
 
-            <p>
-              I break down complex ideas and explain them in simple,
-              meaningful ways.
-            </p>
+          <div className="about-card">
+            <div className="card-icon">
+              <img src="/icons/chat.png" alt="Communication" />
+            </div>
+
+            <div>
+              <h3>Clear Communicator</h3>
+              <p>
+                I break down complex ideas and explain them in simple,
+                meaningful ways.
+              </p>
+            </div>
           </div>
 
           <div className="about-card">
-            <h3>Collaborative</h3>
+            <div className="card-icon">
+              <img src="/icons/collaboration.png" alt="Collaboration" />
+            </div>
 
-            <p>
-              I thrive in team environments and enjoy building together
-              using Agile workflows.
-            </p>
+            <div>
+              <h3>Collaborative</h3>
+              <p>
+                I thrive in team environments and enjoy building together
+                using Agile workflows.
+              </p>
+            </div>
           </div>
 
           <div className="about-card">
-            <h3>Data Informed</h3>
+            <div className="card-icon">
+              <img src="/icons/data.png" alt="Data" />
+            </div>
 
-            <p>
-              I use data and feedback to make thoughtful,
-              user-centered decisions.
-            </p>
+            <div>
+              <h3>Data Informed</h3>
+              <p>
+                I use data and feedback to make thoughtful,
+                user-centered decisions.
+              </p>
+            </div>
           </div>
 
           <div className="about-card">
-            <h3>Empathetic Designer</h3>
+            <div className="card-icon">
+              <img src="/icons/heart.png" alt="Empathy" />
+            </div>
 
-            <p>
-              I design with the user in mind to create experiences that
-              are accessible and engaging.
-            </p>
+            <div>
+              <h3>Empathetic Designer</h3>
+              <p>
+                I design with the user in mind to create experiences that
+                are accessible and engaging.
+              </p>
+            </div>
           </div>
+
         </div>
       </section>
 
@@ -138,104 +194,110 @@ function App() {
       <section className="projects" id="projects">
         <div className="projects-header">
           <p className="section-label">PROJECTS</p>
-
           <h2>Things I’ve Built</h2>
         </div>
+      {/* ===== CURRENTLY WORKING ON ===== */}
+            <section className="currently-working">
+              <div className="working-icon">
+                <img src="/icons/rocket.png" alt="Currently working icon" />
+              </div>
+
+              <div className="working-text">
+                <p className="section-label">CURRENTLY WORKING ON</p>
+                <p>
+                  Building a data mining project that analyzes fitness and workout trends using real-world datasets. 
+                  Applying data visualization, pattern discovery, and machine learning techniques to uncover meaningful insights.
+                </p>
+              </div>
+
+              <div className="working-illustration">
+                <img src="/icons/data-project.png" alt="Data project illustration" />
+              </div>
+            </section>
+
 
         <div className="projects-grid">
-
-          {/* ===== PROJECT 1 ===== */}
           <div className="project-card">
-            <img
-              src="https://placehold.co/600x350"
-              alt="Talent Trail"
-            />
+            <div className="project-image">
+              <img src="/project png/homepage.png" alt="Talent Trail homepage" />
+            </div>
 
             <div className="project-content">
               <h3>Talent Trail</h3>
-
               <p>
-                A skill-to-job matching platform that helps users
-                explore careers based on their skills and interests.
+                A skill-to-job matching platform that helps users explore careers
+                based on their skills and interests.
               </p>
 
-              <div className="tech-stack">
+              <div className="project-tags">
                 <span>React</span>
                 <span>Python</span>
                 <span>Flask</span>
                 <span>HTML/CSS</span>
               </div>
 
-              <div className="project-buttons">
-                <button className="live-btn">
-                  Live Demo ↗
-                </button>
-
-                <button className="github-btn">
+              <div className="project-links">
+                <a href="https://youtu.be/zIh3MUsDnYw" target="_blank">
+                  Video Demo ↗
+                </a>
+                <a href="https://github.com/sssuliman/Suliman_Talent_Trail" target="_blank">
                   GitHub
-                </button>
+                </a>
               </div>
             </div>
           </div>
 
-          {/* ===== PROJECT 2 ===== */}
           <div className="project-card">
-            <img
-              src="https://placehold.co/600x350"
-              alt="Smart Makeup Search Engine"
-            />
+            <div className="project-image">
+              <img src="/project png/Beauty.png" alt="Beauty Search terminal demo" />
+            </div>
 
             <div className="project-content">
-              <h3>Smart Makeup Search Engine</h3>
-
+              <h3>Beauty Search</h3>
               <p>
-                A Trie-based search engine that efficiently matches
-                makeup products by name and category.
+                A Trie-based search engine that efficiently matches makeup products
+                by category, skin type, and search prefix.
               </p>
 
-              <div className="tech-stack">
-                <span>Python</span>
+              <div className="project-tags">
+                <span>C++</span>
                 <span>Trie</span>
                 <span>Data Structures</span>
               </div>
 
-              <div className="project-buttons">
-                <button className="github-btn">
+              <div className="project-links">
+                <a href="https://github.com/sssuliman/Beauty_Search" target="_blank">
                   GitHub
-                </button>
+                </a>
               </div>
             </div>
           </div>
 
-          {/* ===== PROJECT 3 ===== */}
           <div className="project-card">
-            <img
-              src="https://placehold.co/600x350"
-              alt="RSA Encryption"
-            />
+            <div className="project-image">
+              <img src="/project png/rsa-encryption-demo.png" alt="RSA encryption notebook demo" />
+            </div>
 
             <div className="project-content">
               <h3>RSA Encryption</h3>
-
               <p>
-                Implemented RSA encryption and decryption using modular
-                arithmetic in a Jupyter Notebook.
+                A Python notebook implementing RSA encryption, key generation,
+                message encryption, and decryption.
               </p>
 
-              <div className="tech-stack">
+              <div className="project-tags">
                 <span>Python</span>
                 <span>Jupyter</span>
-                <span>Math</span>
+                <span>Cryptography</span>
               </div>
 
-              <div className="project-buttons">
-                <button className="github-btn">
+              <div className="project-links">
+                <a href="https://github.com/sssuliman/RSA_Encryption_Tool" target="_blank">
                   GitHub
-                </button>
+                </a>
               </div>
             </div>
           </div>
-
         </div>
       </section>
     </>
