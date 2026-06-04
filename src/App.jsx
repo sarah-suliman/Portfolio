@@ -425,6 +425,50 @@ function App() {
             </div>
           </div>
         </section>
+
+       {/* ===== CONTACT SECTION ===== */}
+        <section className="contact" id="contact">
+          <div className="contact-content">
+            <p className="section-label">LET'S CONNECT</p>
+
+            <h2>I’d love to hear from you!</h2>
+
+            <p className="contact-subtitle">
+              Open to front-end, UI/UX, and entry-level software engineering opportunities.
+            </p>
+
+            <div className="contact-links">
+              <a href="mailto:sulimansarah00@gmail.com" className="contact-item">
+                <img src="/icons/email.png" alt="Email icon" />
+                <span>sulimansarah00@gmail.com</span>
+              </a>
+
+              <a href="tel:7207513599" className="contact-item">
+                <img src="/icons/phone.png" alt="Phone icon" />
+                <span>(720) 751-3599</span>
+              </a>
+
+              <a
+                href="https://linkedin.com/in/sarahmsuliman"
+                target="_blank"
+                className="contact-item"
+              >
+                <img src="/icons/linkedin.png" alt="LinkedIn icon" />
+                <span>linkedin.com/in/sarahmsuliman</span>
+              </a>
+
+              <a
+                href="https://github.com/sssuliman"
+                target="_blank"
+                className="contact-item"
+              >
+                <img src="/icons/github.png" alt="GitHub icon" />
+                <span>github.com/sssuliman</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
     </>
   )
 }
