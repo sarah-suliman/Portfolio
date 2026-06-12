@@ -8,7 +8,15 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("section[id]")
-      const scrollPosition = window.scrollY + window.innerHeight / 3
+      const scrollPosition = window.scrollY + window.innerHeight / 2
+      
+      const isBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 10
+
+if (isBottom) {
+  setActiveSection("contact")
+  return
+}
 
       let current = "home"
 
